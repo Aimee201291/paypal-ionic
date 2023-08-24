@@ -1,3 +1,8 @@
+ion-toolbar {
+  --background: #B7D4FE;
+  color: #24419B;
+}
+
 ion-menu-button {
   color: var(--ion-color-primary);
 }
@@ -25,4 +30,31 @@ ion-menu-button {
 
 #container a {
   text-decoration: none;
+}
+
+.paypal-container {
+  margin: 10%;
+}
+
+.card-size {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/*.card-header img {
+  width: 100%;
+}*/
+
+.text-container {
+  text-align: start;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.button-container {
+  padding: 5% 20% 0 20%;
+}
+
+.button-container > button {
+  width: 100%;
 }
