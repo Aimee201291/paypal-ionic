@@ -11,6 +11,7 @@ import { CartItemModel } from 'src/app/models/cart-item-model';
 export class CartComponent  implements OnInit {
 
   cartItems: any = [];
+  total = 0;
 
   constructor(
     private messageService: MessageService
@@ -18,6 +19,7 @@ export class CartComponent  implements OnInit {
 
   ngOnInit() {
     this.getItem();
+    this.total = this.getTotal();
   }
 
   getItem(): void {
@@ -33,7 +35,32 @@ export class CartComponent  implements OnInit {
         const cartItem = new CartItemModel(product);
         this.cartItems.push(cartItem);
       }
+      this.total = this.getTotal();
     });
+  }
+
+  getTotal(): number {
+    let total = 0;
+    this.cartItems.forEach((item: { qty: number; productPrice: number; }) => {
+      total += item.qty * item.productPrice;
+    });
+    return +total.toFixed(2);
+  }
+
+  emptyCart(): void {
+    this.cartItems = [];
+    this.total = 0;
+    //this.storageService.clear();
+  }
+
+  deleteItem(i: number): void {
+    if (this.cartItems[i].qty > 1) {
+      this.cartItems[i].qty--;
+    } else {
+      this.cartItems.splice(i, 1);
+    }
+    this.total = this.getTotal();
+    //this.storageService.setCart(this.cartItems);
   }
 
 }
