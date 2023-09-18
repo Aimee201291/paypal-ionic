@@ -12,12 +12,18 @@ import { ProductListComponent } from 'src/app/components/product-list/product-li
 import { CartComponent } from 'src/app/components/cart/cart.component';
 import { ProductItemComponent } from 'src/app/components/product-item/product-item.component';
 import { CartItemComponent } from 'src/app/components/cart-item/cart-item.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    NgxPayPalModule,
+    NgxSpinnerModule,
+    NgbModule,
     PrincipalPageRoutingModule
   ],
   declarations: [PrincipalPage, ProductListComponent, CartComponent, ProductItemComponent, CartItemComponent]
