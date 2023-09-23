@@ -77,7 +77,8 @@ export class CartComponent  implements OnInit {
         console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point',
         JSON.stringify(data));
         this.openModal(
-          data.purchase_units[0].items,
+          //data.purchase_units[0].items,
+          this.cartItems,
           data.purchase_units[0].amount.value
         );
         this.emptyCart();
@@ -137,10 +138,34 @@ export class CartComponent  implements OnInit {
     this.storageService.setCart(this.cartItems);
   }
 
-  openModal(items: any, amount: any): void {
+  //openModal(items: any, amount: any): void {
     //const modalRef = this.modalService.open(ModalComponent);
     //modalRef.componentInstance.items = items;
     //modalRef.componentInstance.amount = amount;
+  //}
+
+  /*async openModal(items: any, amount: any) {
+    const modal = await this.modalService.create({
+      component: ModalComponent,
+      componentProps: { items, amount },
+      cssClass: 'setting-modal',
+      backdropDismiss: false,
+    });
+
+    modal.present();
+
+    const modalData = await modal.onWillDismiss();
+    //this.dataFromModal = modalData.data.name ? modalData.data.name : modalData.data.ionic;
+  }*/
+
+  async openModal(items: any, amount: any) {
+    const modal = await this.modalService.create({
+      component: ModalComponent,
+      componentProps: {
+        items, amount
+      },
+    });
+    await modal.present();
   }
 
 }

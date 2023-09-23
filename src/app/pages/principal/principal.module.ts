@@ -12,9 +12,10 @@ import { ProductListComponent } from 'src/app/components/product-list/product-li
 import { CartComponent } from 'src/app/components/cart/cart.component';
 import { ProductItemComponent } from 'src/app/components/product-item/product-item.component';
 import { CartItemComponent } from 'src/app/components/cart-item/cart-item.component';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -26,6 +27,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     PrincipalPageRoutingModule
   ],
-  declarations: [PrincipalPage, ProductListComponent, CartComponent, ProductItemComponent, CartItemComponent]
+  declarations: [PrincipalPage, ProductListComponent, CartComponent, ProductItemComponent, CartItemComponent, ModalComponent],
+  providers: [
+    NgbActiveModal,
+  ],
 })
 export class PrincipalPageModule {}

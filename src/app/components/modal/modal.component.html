@@ -1,4 +1,4 @@
-<div class="modal-header">
+<!--div class="modal-header">
   <h4>Purchase OK!!</h4>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Crosss click')">
       <span aria-hidden="true">&times;</span>
@@ -9,8 +9,22 @@
   <h3>Items Data</h3>
   <hr>
   <div *ngFor="let item of items">
-      <p><b>Name: </b>{{item.name}} <b>Units: </b>{{item.quantity}} <b>Price/unit: </b>{{item.unit_amount.value}}€</p>
+      <p><b>Name: </b><#--{{item.name}} <b>Units: </b>{{item.quantity}} <b>Price/unit: </b>{{item.unit_amount.value}}€--#></p>
   </div>
   <hr>
-  <h3><b>Total: </b>{{amount}}€</h3>
+  <h3><b>Total: </b></h3><#--</b>{{amount}}€</h3>--#>
+</div-->
+
+<div class="custom-modal-header">
+  <h3 class="mb-3 custom-padding">Purchase details</h3>
+</div>
+
+<div class="modal-body custom-padding">
+  <h3>Items Data</h3>
+  <hr>
+  <div *ngFor="let item of items">
+    <p><b>Name: </b>{{item.productName}} <b>Units: </b>{{item.qty}} <b>Price/unit: </b>${{item.productPrice}}</p>
+  </div>
+  <hr>
+  <h3><b>Total: ${{amount}} </b></h3>
 </div>
