@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal',
@@ -12,9 +13,14 @@ export class ModalComponent  implements OnInit {
   @Input() items!: any;
 
   constructor(
-    public activeModal: NgbActiveModal
+    public activeModal: NgbActiveModal,
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {}
+
+  closeModal() {
+    this.modalController.dismiss();
+  }
 
 }
